@@ -1,5 +1,7 @@
 package com.gustavoluiz.projetoFullStack.config;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +20,10 @@ public class TesteConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Cliente c = new Cliente(null, "342423", "maria", "feminino", "maria@gmail.com", "342343", "parana");
+		Cliente a = new Cliente(null, "342423", "maria", "feminino", "maria@gmail.com", "342343", "parana");
+		Cliente b = new Cliente(null, "3333323", "bob", "masculino", "bob@gmail.com", "21111343", "sao paulo");
 		
-		clienteRepository.save(c);
+		clienteRepository.saveAll(Arrays.asList(a, b));
 		
 	}
 	
