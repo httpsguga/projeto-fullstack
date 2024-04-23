@@ -10,6 +10,8 @@ import com.gustavoluiz.projetoFullStack.entities.Cliente;
 import com.gustavoluiz.projetoFullStack.repositories.ClienteRepository;
 import com.gustavoluiz.projetoFullStack.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class ClienteService {
 
@@ -30,13 +32,22 @@ public class ClienteService {
 	}
 	
 	public void delete (Long id) {
+		try {
 		repository.deleteById(id);
+		}catch (RuntimeException e) {
+			e.printStackTrace();
+
+		}
 	}
 	
 	public Cliente update(Long id, Cliente obj) {
+		try {
 		Cliente entity = repository.getReferenceById(id);
 		updateData(entity, obj);
 		return repository.save(entity);
+		}catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	private void updateData(Cliente entity, Cliente obj) {
