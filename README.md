@@ -1,4 +1,4 @@
-# Projeto java web services com Spring Boot e JPA / Hibernate, html, CSS(bootstrap) e javascript com Jquery, banco de dados PostgreSQL.
+# Projeto Fullstack web services
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Guga010598/workshop-springboot3-jpa/blob/main/LICENSE) 
 
 # Sobre o projeto
